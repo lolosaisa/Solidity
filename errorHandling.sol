@@ -23,8 +23,15 @@ contract ErrorHandling {
     //REVERT FUNCTION
     /**
      * @notice The revert function is used to revert the transaction and return the error message
-     * when the revert fu
+     * when the revert fuction is called all changes made to the blockchain during the transactions are  undone
+     * any remaining gas fee is refunded to the sender.,
+     * mainly used for access control and input validation
      */
+    function example2(uint _value) public {
+        if(_value < 10) {
+            revert("Value must be greater than 10");
+        }
+    }
 
     // Custom error
     error InsufficientBalance(uint256 requested, uint256 available);
